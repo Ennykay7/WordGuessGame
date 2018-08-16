@@ -1,2 +1,2 @@
 # WordGuessGame
-Guess the letter.
+Guess the word.
