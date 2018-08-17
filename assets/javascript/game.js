@@ -17,19 +17,6 @@ document.onkeyup = function (event) {
 
     if (numGuesses === 0) {
         alert("GAME OVER");
-    } else if (currentWord === wordSpace) {
-
-        wins++;
-        document.getElementById("userWins").innerHTML = wins;
-        numGuesses = 7;
-        document.getElementById("guessesLeft").innerHTML = numGuesses;
-        letGuesses = "";
-        document.getElementById("lettersGuessed").innerHTML = letGuesses;
-        currentWord = words[Math.floor(Math.random() * (words.length))];
-        wordLength = currentWord.length;
-        wordSpace = space.repeat(wordLength);
-        document.getElementById("currentWord").innerHTML = wordSpace;
-
     } else if (currentWord.includes(userGuess)) {
 
         var check1 = currentWord.indexOf(userGuess);
@@ -39,6 +26,22 @@ document.onkeyup = function (event) {
         replace.splice(check2, 1, userGuess);
         wordSpace = replace.join("");
         document.getElementById("currentWord").innerHTML = wordSpace;
+
+        if (currentWord === wordSpace) {
+
+            alert("You got it! " + currentWord);
+            wins++;
+            document.getElementById("userWins").innerHTML = wins;
+            numGuesses = 7;
+            document.getElementById("guessesLeft").innerHTML = numGuesses;
+            letGuesses = "";
+            document.getElementById("lettersGuessed").innerHTML = letGuesses;
+            currentWord = words[Math.floor(Math.random() * (words.length))];
+            wordLength = currentWord.length;
+            wordSpace = space.repeat(wordLength);
+            document.getElementById("currentWord").innerHTML = wordSpace;
+
+    }
 
     } else if (letGuesses.includes(userGuess)){
         alert("Already tried that.");
