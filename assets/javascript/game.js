@@ -1,4 +1,4 @@
-    var words = ["ford", "chevrolet", "buick", "jeep", "ram", "chrysler", "cadillac", "dodge", "tesla"];
+    var words = ["ford", "chevrolet", "buick", "jeep", "ram", "chrysler", "cadillac", "dodge", "tesla", "lincoln", "gmc"];
     var wins = 0;
     var userGuess;
     var numGuesses = 7;
