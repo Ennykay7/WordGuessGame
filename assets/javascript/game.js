@@ -2,6 +2,7 @@
     var wins = 0;
     var userGuess;
     var numGuesses = 7;
+    var letGuesses = "";
     var currentWord = words[Math.floor(Math.random() * (words.length))];
     var wordLength = currentWord.length;
     var space = "-";
@@ -22,6 +23,8 @@ document.onkeyup = function (event) {
         document.getElementById("userWins").innerHTML = wins;
         numGuesses = 7;
         document.getElementById("guessesLeft").innerHTML = numGuesses;
+        letGuesses = "";
+        document.getElementById("lettersGuessed").innerHTML = letGuesses;
         currentWord = words[Math.floor(Math.random() * (words.length))];
         wordLength = currentWord.length;
         wordSpace = space.repeat(wordLength);
@@ -37,7 +40,11 @@ document.onkeyup = function (event) {
         wordSpace = replace.join("");
         document.getElementById("currentWord").innerHTML = wordSpace;
 
+    } else if (letGuesses.includes(userGuess)){
+        alert("Already tried that.");
     } else {
+        letGuesses = letGuesses + " " + userGuess;
+        document.getElementById("lettersGuessed").innerHTML = letGuesses;
         numGuesses--;
         document.getElementById("guessesLeft").innerHTML = numGuesses;
     }
